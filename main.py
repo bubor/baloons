@@ -6,8 +6,8 @@ from Box2D import *
 
 pygame.init()
 pygame.init()
-size=[800,600]
-screen=pygame.display.set_mode(size)
+size = [800, 600]
+screen = pygame.display.set_mode(size)
 
 world_for_bubbles = b2World()
 world_for_bubbles.gravity = (0, 2)
@@ -39,15 +39,17 @@ while done == False:
         balloons[-1].shape.radius += utils.calculateBox2DValue(4)
     if mouse_keys[2] and not is_balloon_growing and not is_balloon_shrinking:
         shrinking_balloon_coordinates = pygame.mouse.get_pos()
-        for i in range( len(balloons) ):
-            if utils.distanceBetweenPoints(balloons[i].getPosition(), shrinking_balloon_coordinates) < balloons[i].getRadius():
+        for i in range(len(balloons)):
+            if utils.distanceBetweenPoints(balloons[i].getPosition(), shrinking_balloon_coordinates) < balloons[
+                                                                                                       i].getRadius():
                 shrinking_balloon = i
                 is_balloon_shrinking = True
     if mouse_keys[2] and is_balloon_shrinking:
         print (len(balloons), is_balloon_shrinking)
         balloons[shrinking_balloon].shape.radius -= utils.calculateBox2DValue(4)
         balloons[shrinking_balloon].body.DestroyFixture(balloons[shrinking_balloon].myFixture)
-        balloons[shrinking_balloon].myFixture = balloons[shrinking_balloon].body.CreateFixture(balloons[shrinking_balloon].fixtureDef)
+        balloons[shrinking_balloon].myFixture = balloons[shrinking_balloon].body.CreateFixture(
+            balloons[shrinking_balloon].fixtureDef)
         if(balloons[shrinking_balloon].getRadius() <= 1):
             world_for_bubbles.DestroyBody(balloons[shrinking_balloon].body)
             balloons.pop(shrinking_balloon)
@@ -57,11 +59,10 @@ while done == False:
 
     world_for_bubbles.Step(timeStep, 6, 2)
     world_for_bubbles.ClearForces()
-    screen.fill( (255,255,255) )
+    screen.fill((255, 255, 255))
     for element in balloons:
         element.draw(screen)
     clock.tick(20)
     pygame.display.flip()
-
 
 pygame.quit()

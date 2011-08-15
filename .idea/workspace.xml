@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7199fe07-53ad-4096-ab64-a9ced7556ab7" name="Default" comment="Added">
+    <list default="true" id="7199fe07-53ad-4096-ab64-a9ced7556ab7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/balloon.py" afterPath="$PROJECT_DIR$/balloon.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
     </list>
@@ -31,7 +30,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="25" selection-start="2183" selection-end="2183" vertical-scroll-proportion="0.22190201">
+            <state line="67" column="13" selection-start="2571" selection-end="2571" vertical-scroll-proportion="2.853026">
               <folding />
             </state>
           </provider>
@@ -49,7 +48,7 @@
       <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="30" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+            <state line="14" column="30" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -225,7 +224,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="720" extended-state="2" />
+    <frame x="0" y="24" width="1366" height="720" extended-state="3" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -271,7 +270,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multiple balloons and balloon activation after mouse button drop." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added bubble shrinking." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -287,18 +286,12 @@
     <MESSAGE value="Added Box2D initial support to Balloon class." />
     <MESSAGE value="Implemented utility functions to convert values between Box2D and pygame." />
     <MESSAGE value="Added multiple balloons and balloon activation after mouse button drop." />
+    <MESSAGE value="Added bubble shrinking." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="30" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/balloon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="29" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0">
@@ -306,9 +299,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="30" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="25" selection-start="2183" selection-end="2183" vertical-scroll-proportion="0.22190201">
+        <state line="67" column="13" selection-start="2571" selection-end="2571" vertical-scroll-proportion="2.853026">
           <folding />
         </state>
       </provider>
