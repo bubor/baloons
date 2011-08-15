@@ -1,6 +1,7 @@
 __author__ = 'kuba'
 import pygame
 import balloon
+import utils
 from Box2D import *
 
 pygame.init()
@@ -9,12 +10,13 @@ size=[800,600]
 screen=pygame.display.set_mode(size)
 
 world_for_bubbles = b2World()
-world_for_bubbles.gravity = (0, 0)
+world_for_bubbles.gravity = (0, -00.1)
 
 pygame.display.set_caption("Balloons")
 done = False
 
 clock = pygame.time.Clock()
+timeStep = 1.0 / 60
 is_balloon_growing = False
 
 balloons = None
@@ -32,9 +34,11 @@ while done == False:
     elif is_balloon_growing and mouse_keys[0] == 0:
         is_balloon_growing = False
     elif is_balloon_growing and mouse_keys[0]:
-        balloons.shape.radius += 4
+        balloons.shape.radius += utils.calculateBox2DValue(4)
         print(is_balloon_growing)
 
+    world_for_bubbles.Step(timeStep, 6, 2)
+    world_for_bubbles.ClearForces()
     screen.fill( (255,255,255) )
     if balloons:
         balloons.draw(screen)
