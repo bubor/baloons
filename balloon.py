@@ -17,11 +17,16 @@ class Balloon:
         self.fixtureDef.friction = 0.1
         self.fixtureDef.density = 1
         self.fixtureDef.restitution = 0.5
-        self.body.CreateFixture(self.fixtureDef)
-        print (self.body.mass)
+        self.myFixture = None
 
     def draw(self, screen):
         color = pygame.Color(56, 159, 191, 200)
-        position = [utils.calculatePygameValue(self.body.position[0]), utils.calculatePygameValue(self.body.position[1])]
+        position = self.getPosition()
         radius = utils.calculatePygameValue(self.shape.radius)
         pygame.draw.circle(screen, color, position, radius)
+
+    def getPosition(self):
+        return [utils.calculatePygameValue(self.body.position[0]), utils.calculatePygameValue(self.body.position[1])]
+
+    def getRadius(self):
+        return utils.calculatePygameValue(self.shape.radius)
