@@ -30,3 +30,10 @@ class Balloon:
 
     def getRadius(self):
         return utils.calculatePygameValue(self.shape.radius)
+
+    def destroyBody(self, world):
+        world.DestroyBody(self.body)
+
+    def reloadFixture(self):
+        self.body.DestroyFixture(self.myFixture)
+        self.myFixture = self.body.CreateFixture(self.fixtureDef)
