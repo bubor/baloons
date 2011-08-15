@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7199fe07-53ad-4096-ab64-a9ced7556ab7" name="Default" comment="Added Box2D initial support to Balloon class.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils.py" />
+    <list default="true" id="7199fe07-53ad-4096-ab64-a9ced7556ab7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/balloon.py" afterPath="$PROJECT_DIR$/balloon.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="12" selection-start="285" selection-end="285" vertical-scroll-proportion="-0.2939481">
+            <state line="48" column="0" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.69740635">
               <folding />
             </state>
           </provider>
@@ -40,7 +39,7 @@
       <file leaf-file-name="balloon.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/balloon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0">
+            <state line="8" column="115" selection-start="189" selection-end="296" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -271,7 +270,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Box2D initial support to Balloon class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented utility functions to convert values between Box2D and pygame." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -285,6 +284,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Added Box2D initial support to Balloon class." />
+    <MESSAGE value="Implemented utility functions to convert values between Box2D and pygame." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -299,14 +299,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/balloon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0">
+        <state line="8" column="115" selection-start="189" selection-end="296" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="12" selection-start="285" selection-end="285" vertical-scroll-proportion="-0.2939481">
+        <state line="48" column="0" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.69740635">
           <folding />
         </state>
       </provider>
