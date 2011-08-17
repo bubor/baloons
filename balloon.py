@@ -23,7 +23,12 @@ class Balloon:
         color = pygame.Color(56, 159, 191, 200)
         position = self.getPosition()
         radius = utils.calculatePygameValue(self.shape.radius)
-        pygame.draw.circle(screen, color, position, radius)
+	surface = pygame.Surface((2*radius, 2*radius))
+        surface.fill((0,255,0))
+        surface.set_colorkey((0,255,0))
+        surface.set_alpha(200)
+        pygame.draw.circle(surface, color, [radius,radius], radius)
+        screen.blit(surface, [position[0]-radius, position[1]-radius, 2*radius, 2*radius])
 
     def getPosition(self):
         return [utils.calculatePygameValue(self.body.position[0]), utils.calculatePygameValue(self.body.position[1])]
@@ -32,6 +37,7 @@ class Balloon:
         return utils.calculatePygameValue(self.shape.radius)
 
     def destroyBody(self, world):
+	self.body.active = False
         world.DestroyBody(self.body)
 
     def reloadFixture(self):
