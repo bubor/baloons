@@ -45,15 +45,17 @@ while done == False:
         shrinking_balloon_coordinates = pygame.mouse.get_pos()
         for i in range(len(balloons)):
             if utils.distanceBetweenPoints(balloons[i].getPosition(), shrinking_balloon_coordinates) < balloons[i].getRadius():
-                shrinking_balloon = i
+                shrinking_balloon = balloons[i]
                 is_balloon_shrinking = True
-    if mouse_keys[2] and is_balloon_shrinking:
-        balloons[shrinking_balloon].shape.radius -= utils.calculateBox2DValue(4)
-        balloons[shrinking_balloon].reloadFixture()
-        if(balloons[shrinking_balloon].getRadius() <= 1):
-            balloons[shrinking_balloon].destroyBody(world_for_bubbles)
-            balloons.pop(shrinking_balloon)
+    if mouse_keys[2] and is_balloon_shrinking and shrinking_balloon != None:
+        shrinking_balloon.shape.radius -= utils.calculateBox2DValue(4)
+        shrinking_balloon.reloadFixture()
+        if(shrinking_balloon.getRadius() <= 1):
+            shrinking_balloon.destroyBody(world_for_bubbles)
+            balloons.remove(shrinking_balloon)
             is_balloon_shrinking = False
+    else:
+        shrinking_balloon = None
     if not mouse_keys[2]:
         is_balloon_shrinking = False
 
@@ -62,6 +64,9 @@ while done == False:
         upper_board = [element_position[0], 0]
         if element_position[1] < 0 and utils.distanceBetweenPoints(element_position, upper_board) >= element.getRadius():
             element.destroyBody(world_for_bubbles)
+            if(shrinking_balloon == element):
+                shrinking_element = None
+                is_balloon_shrinking = False
             balloons.remove(element)
 
     world_for_bubbles.Step(timeStep, 6, 2)
