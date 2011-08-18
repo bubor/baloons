@@ -11,9 +11,15 @@ pygame.init()
 size = [800, 600]
 screen = pygame.display.set_mode(size)
 
+pygame.mixer.init()
 pygame.font.init()
 rabbit = pygame.image.load('gfx/rabbit.png').convert()
 mouth = pygame.image.load('gfx/mouth.png').convert()
+blow_sound = pygame.mixer.Sound('sound/blow.ogg')
+pop_sound = pygame.mixer.Sound('sound/pop.ogg')
+pygame.mixer.music.load('sound/audio.ogg')
+pygame.mixer.music.play()
+
 mouth.set_colorkey([0,255,0])
 
 world_for_bubbles = b2World()
@@ -53,6 +59,7 @@ while done == False:
         balloons[-1].getFoodInside(food_machine)
     elif is_balloon_growing and mouse_keys[0]:
         balloons[-1].shape.radius += utils.calculateBox2DValue(4)
+        blow_sound.play()
 
     world_for_bubbles.Step(timeStep, 6, 2)
     world_for_bubbles.ClearForces()
@@ -73,6 +80,7 @@ while done == False:
             shrinking_balloon.destroyBody(world_for_bubbles)
             balloons.remove(shrinking_balloon)
             is_balloon_shrinking = False
+            pop_sound.play()
     else:
         shrinking_balloon = None
     if not mouse_keys[2]:
