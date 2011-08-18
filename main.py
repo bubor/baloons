@@ -20,6 +20,10 @@ left_pipe = pipe.Pipe(world_for_food, [-50, 400])
 food_machine = food.Food(world_for_food)
 
 pygame.display.set_caption("Balloons")
+rabbit = pygame.image.load('gfx/rabbit.png').convert()
+mouth = pygame.image.load('gfx/mouth.png').convert()
+
+mouth.set_colorkey([0,255,0])
 done = False
 
 clock = pygame.time.Clock()
@@ -82,11 +86,13 @@ while done == False:
     world_for_food.Step(timeStep, 6, 2)
     world_for_food.ClearForces()
     screen.fill((255, 255, 255))
+    screen.blit(rabbit, [300, 400, 200, 200])
     for element in balloons:
         element.draw(screen)
     left_pipe.draw(screen)
     food_machine.draw(screen)
-
+    screen.blit(mouth, [355, 560, 67, 40])
+    food_machine.removeOutsiders()
     clock.tick(20)
     pygame.display.flip()
 
