@@ -31,6 +31,12 @@ class Balloon:
         surface.set_alpha(200)
         pygame.draw.circle(surface, color, [radius,radius], radius)
         screen.blit(surface, [position[0]-radius, position[1]-radius, 2*radius, 2*radius])
+        if(self.has_food_inside):
+            half_radius = radius/2
+            font = pygame.font.Font('gfx/font.ttf', half_radius)
+            size = font.size(str(self.counter))
+            text = font.render(str(self.counter), True, [50, 50, 150])
+            screen.blit(text, [position[0]-size[0]/2, position[1]-size[1]/2])
 
     def getPosition(self):
         return [utils.calculatePygameValue(self.body.position[0]), utils.calculatePygameValue(self.body.position[1])]
@@ -52,7 +58,6 @@ class Balloon:
         i = 0
         while i < len(food_machine.pieces_of_food):
             piece_position = [utils.calculatePygameValue(food_machine.pieces_of_food[i].position[0]), utils.calculatePygameValue(food_machine.pieces_of_food[i].position[1])]
-            print(ball_position, piece_position, radius)
             if utils.distanceBetweenPoints(ball_position, piece_position) < radius:
                 self.counter = self.counter + 1
                 self.has_food_inside = True

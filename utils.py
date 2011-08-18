@@ -1,6 +1,6 @@
 __author__ = 'kuba'
 from math import *
-
+import pygame
 
 def calculateBox2DValue(initialValue):
     return float(initialValue) / 400.0

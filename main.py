@@ -11,6 +11,11 @@ pygame.init()
 size = [800, 600]
 screen = pygame.display.set_mode(size)
 
+pygame.font.init()
+rabbit = pygame.image.load('gfx/rabbit.png').convert()
+mouth = pygame.image.load('gfx/mouth.png').convert()
+mouth.set_colorkey([0,255,0])
+
 world_for_bubbles = b2World()
 world_for_bubbles.gravity = (0, -1)
 
@@ -20,10 +25,6 @@ left_pipe = pipe.Pipe(world_for_food, [-50, 400])
 food_machine = food.Food(world_for_food)
 
 pygame.display.set_caption("Balloons")
-rabbit = pygame.image.load('gfx/rabbit.png').convert()
-mouth = pygame.image.load('gfx/mouth.png').convert()
-
-mouth.set_colorkey([0,255,0])
 done = False
 
 clock = pygame.time.Clock()
