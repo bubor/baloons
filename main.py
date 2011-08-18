@@ -1,6 +1,7 @@
 __author__ = 'kuba'
 import pygame
 import balloon
+import pipe
 import utils
 from Box2D import *
 
@@ -11,6 +12,11 @@ screen = pygame.display.set_mode(size)
 
 world_for_bubbles = b2World()
 world_for_bubbles.gravity = (0, -1)
+
+world_for_food = b2World()
+world_for_food.gravity = (0, 10)
+left_pipe = pipe.Pipe(world_for_food, [0, 400])
+
 
 pygame.display.set_caption("Balloons")
 done = False
@@ -71,9 +77,12 @@ while done == False:
 
     world_for_bubbles.Step(timeStep, 6, 2)
     world_for_bubbles.ClearForces()
+    world_for_food.Step(timeStep, 6, 2)
+    world_for_food.ClearForces()
     screen.fill((255, 255, 255))
     for element in balloons:
         element.draw(screen)
+    left_pipe.draw(screen)
     clock.tick(20)
     pygame.display.flip()
 

@@ -23,7 +23,7 @@ class Balloon:
         color = pygame.Color(56, 159, 191, 200)
         position = self.getPosition()
         radius = utils.calculatePygameValue(self.shape.radius)
-	surface = pygame.Surface((2*radius, 2*radius))
+        surface = pygame.Surface((2*radius, 2*radius))
         surface.fill((0,255,0))
         surface.set_colorkey((0,255,0))
         surface.set_alpha(200)
@@ -37,7 +37,7 @@ class Balloon:
         return utils.calculatePygameValue(self.shape.radius)
 
     def destroyBody(self, world):
-	self.body.active = False
+        self.body.active = False
         world.DestroyBody(self.body)
 
     def reloadFixture(self):
