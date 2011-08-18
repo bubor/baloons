@@ -20,7 +20,7 @@ class Balloon:
         self.myFixture = None
 
     def draw(self, screen):
-        color = pygame.Color(56, 159, 191, 200)
+        color = pygame.Color(56, 159, 191)
         position = self.getPosition()
         radius = utils.calculatePygameValue(self.shape.radius)
         surface = pygame.Surface((2*radius, 2*radius))

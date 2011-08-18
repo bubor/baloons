@@ -3,6 +3,7 @@ import pygame
 import balloon
 import pipe
 import utils
+import food
 from Box2D import *
 
 pygame.init()
@@ -15,7 +16,9 @@ world_for_bubbles.gravity = (0, -1)
 
 world_for_food = b2World()
 world_for_food.gravity = (0, 10)
-left_pipe = pipe.Pipe(world_for_food, [0, 400])
+left_pipe = pipe.Pipe(world_for_food, [-50, 400])
+food_machine = food.Food(world_for_food)
+food_machine.createLeftPipeFood()
 
 
 pygame.display.set_caption("Balloons")
@@ -83,6 +86,8 @@ while done == False:
     for element in balloons:
         element.draw(screen)
     left_pipe.draw(screen)
+    food_machine.draw(screen)
+
     clock.tick(20)
     pygame.display.flip()
 
