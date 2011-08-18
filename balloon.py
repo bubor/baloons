@@ -11,6 +11,8 @@ class Balloon:
         self.shape = b2CircleShape()
         self.shape.pos = (utils.calculateBox2DValue(0), utils.calculateBox2DValue(0))
         self.shape.radius = utils.calculateBox2DValue(radius)
+        self.has_food_inside = False
+        self.counter = 0
 
         self.fixtureDef = b2FixtureDef()
         self.fixtureDef.shape = self.shape
@@ -43,3 +45,17 @@ class Balloon:
     def reloadFixture(self):
         self.body.DestroyFixture(self.myFixture)
         self.myFixture = self.body.CreateFixture(self.fixtureDef)
+
+    def getFoodInside(self, food_machine):
+        ball_position = self.getPosition()
+        radius = self.getRadius()
+        i = 0
+        while i < len(food_machine.pieces_of_food):
+            piece_position = [utils.calculatePygameValue(food_machine.pieces_of_food[i].position[0]), utils.calculatePygameValue(food_machine.pieces_of_food[i].position[1])]
+            print(ball_position, piece_position, radius)
+            if utils.distanceBetweenPoints(ball_position, piece_position) < radius:
+                self.counter = self.counter + 1
+                self.has_food_inside = True
+                food_machine.removePieceAt(i)
+            else:
+                i = i + 1

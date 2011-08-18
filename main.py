@@ -49,8 +49,14 @@ while done == False:
         is_balloon_growing = False
         balloons[-1].myFixture = balloons[-1].body.CreateFixture(balloons[-1].fixtureDef)
         balloons[-1].body.active = True
+        balloons[-1].getFoodInside(food_machine)
     elif is_balloon_growing and mouse_keys[0]:
         balloons[-1].shape.radius += utils.calculateBox2DValue(4)
+
+    world_for_bubbles.Step(timeStep, 6, 2)
+    world_for_bubbles.ClearForces()
+    world_for_food.Step(timeStep, 6, 2)
+    world_for_food.ClearForces()
 
     #balloons shrinking
     if mouse_keys[2] and not is_balloon_growing and not is_balloon_shrinking:
@@ -81,10 +87,6 @@ while done == False:
                 is_balloon_shrinking = False
             balloons.remove(element)
 
-    world_for_bubbles.Step(timeStep, 6, 2)
-    world_for_bubbles.ClearForces()
-    world_for_food.Step(timeStep, 6, 2)
-    world_for_food.ClearForces()
     screen.fill((255, 255, 255))
     screen.blit(rabbit, [300, 400, 200, 200])
     for element in balloons:

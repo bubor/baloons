@@ -35,5 +35,12 @@ class Food:
             position = piece.position
             position = [utils.calculatePygameValue(position[0]), utils.calculatePygameValue(position[1])]
             if position[1] > 600:
-                self.world.DestroyBody(piece)
-                self.pieces_of_food.remove(piece)
+                self.removePiece(piece)
+
+    def removePiece(self, piece):
+        self.world.DestroyBody(piece)
+        self.pieces_of_food.remove(piece)
+
+    def removePieceAt(self, index):
+        self.world.DestroyBody(self.pieces_of_food[index])
+        self.pieces_of_food.pop(index)
