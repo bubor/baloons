@@ -2,6 +2,7 @@ __author__ = 'kuba'
 from Box2D import *
 import utils
 import pygame
+import random
 
 class Food:
     def __init__(self, world):
@@ -9,6 +10,8 @@ class Food:
         self.pieces_of_food = list()
 
     def createLeftPipeFood(self):
+        if(random.randint(0, 20) <= 1):
+            return 
         piece = self.world.CreateDynamicBody()
         piece.position = [utils.calculateBox2DValue(-20), utils.calculateBox2DValue(100)]
         piece_shape = b2CircleShape()

@@ -12,7 +12,7 @@ class Pipe:
         self.body.position = (utils.calculateBox2DValue(positions[0]), utils.calculateBox2DValue(positions[1]))
         self.fixture = b2FixtureDef()
         self.fixture.shape = self.shapes
-        self.fixture.friction = 0.1
+        self.fixture.friction = 0.3
         self.body.CreateFixture(self.fixture)
 
     def draw(self, screen):

@@ -18,8 +18,6 @@ world_for_food = b2World()
 world_for_food.gravity = (0, 10)
 left_pipe = pipe.Pipe(world_for_food, [-50, 400])
 food_machine = food.Food(world_for_food)
-food_machine.createLeftPipeFood()
-
 
 pygame.display.set_caption("Balloons")
 done = False
@@ -31,6 +29,7 @@ is_balloon_shrinking = False
 
 balloons = list()
 while done == False:
+    food_machine.createLeftPipeFood()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
