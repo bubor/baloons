@@ -20,6 +20,7 @@ blow_sound = pygame.mixer.Sound('sound/blow.ogg')
 pop_sound = pygame.mixer.Sound('sound/pop.ogg')
 pygame.mixer.music.load('sound/audio.ogg')
 pygame.mixer.music.play(-1)
+pygame.display.toggle_fullscreen()
 
 mouth.set_colorkey([0,255,0])
 
@@ -35,6 +36,7 @@ pygame.display.set_caption("Balloons")
 done = False
 
 score = 0
+best_score = int(open('scrs', 'r').readline())
 clock = pygame.time.Clock()
 timeStep = 1.0 / 60
 is_balloon_growing = False
@@ -106,10 +108,24 @@ while done == False:
     screen.blit(rabbit, [300, 400, 200, 200])
     text = font.render('Score: ' + str(score), True, [50, 50, 150])
     screen.blit(text, [650, 550])
+    text = font.render('Best:    ' + str(best_score), True, [50, 50, 150])
+    screen.blit(text, [650, 565])
     end_time = pygame.time.get_ticks()
-    miliseconds = (end_time - start_time) / 1000
-    text = font.render('Time:   ' + str(miliseconds), True, [50, 50, 150])
-    screen.blit(text, [650, 570])
+    seconds = (end_time - start_time) / 1000
+    if(seconds == 60):
+        if(score > best_score):
+            file = open('scrs', 'w+')
+            file.write(str(score))
+            text = font.render('New personal best!', True, [50, 150, 50])
+            screen.blit(text, [320, 300])
+        text = font.render('Time:   ' + str(seconds), True, [150, 50, 50])
+        screen.blit(text, [650, 580])
+        pygame.display.flip()
+        pygame.time.wait(1000)
+        done = True
+        continue
+    text = font.render('Time:   ' + str(seconds), True, [50, 50, 150])
+    screen.blit(text, [650, 580])
     for element in balloons:
         element.draw(screen)
     left_pipe.draw(screen)

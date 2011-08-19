@@ -45,6 +45,10 @@ class Food:
                 self.removePieceAt(i)
             else:
                 i += 1
+        if(score):
+            chewing = pygame.mixer.Sound('sound/chewing.ogg')
+            chewing.fadeout(1000)
+            chewing.play()
         return score
 
 
