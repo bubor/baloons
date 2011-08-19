@@ -2,6 +2,7 @@ __author__ = 'kuba'
 import pygame
 import utils
 from Box2D import *
+import random
 
 class Balloon:
     def __init__(self, world, coordinates, radius):
@@ -64,3 +65,8 @@ class Balloon:
                 food_machine.removePieceAt(i)
             else:
                 i = i + 1
+
+    def releaseAshes(self, food_machine):
+        for i in range(self.counter):
+            position = [self.body.position[0]+random.random()/80, self.body.position[1]+random.random()/80]
+            food_machine.createPieceOfFood(position, radius=2)

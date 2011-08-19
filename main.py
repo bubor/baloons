@@ -33,6 +33,7 @@ food_machine = food.Food(world_for_food)
 pygame.display.set_caption("Balloons")
 done = False
 
+score = 0
 clock = pygame.time.Clock()
 timeStep = 1.0 / 60
 is_balloon_growing = False
@@ -78,6 +79,7 @@ while done == False:
         shrinking_balloon.shape.radius -= utils.calculateBox2DValue(4)
         shrinking_balloon.reloadFixture()
         if(shrinking_balloon.getRadius() <= 1):
+            shrinking_balloon.releaseAshes(food_machine)
             shrinking_balloon.destroyBody(world_for_bubbles)
             balloons.remove(shrinking_balloon)
             is_balloon_shrinking = False
@@ -103,7 +105,7 @@ while done == False:
         element.draw(screen)
     left_pipe.draw(screen)
     food_machine.draw(screen)
-    screen.blit(mouth, [355, 560, 67, 40])
+    screen.blit(mouth, [347, 540, 98, 60])
     food_machine.removeOutsiders()
     clock.tick(20)
     pygame.display.flip()

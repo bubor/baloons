@@ -9,18 +9,22 @@ class Food:
         self.world = world
         self.pieces_of_food = list()
 
-    def createLeftPipeFood(self):
-        if(random.randint(0, 20) <= 1):
-            return 
+    def createPieceOfFood(self, position, radius):
         piece = self.world.CreateDynamicBody()
-        piece.position = [utils.calculateBox2DValue(-20), utils.calculateBox2DValue(100)]
+        piece.position = position
         piece_shape = b2CircleShape()
         piece_shape.pos = [0,0]
-        piece_shape.radius = utils.calculateBox2DValue(4)
+        piece_shape.radius = utils.calculateBox2DValue(radius)
         piece_fixture = b2FixtureDef()
         piece_fixture.shape = piece_shape
         piece.CreateFixture(piece_fixture)
         self.pieces_of_food.append(piece)
+
+    def createLeftPipeFood(self):
+        if(random.randint(0, 20) <= 1):
+            return 
+        self.createPieceOfFood([utils.calculateBox2DValue(-20), utils.calculateBox2DValue(100)], 4)
+
 
     def draw(self, screen):
         for piece in self.pieces_of_food:
