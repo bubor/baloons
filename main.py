@@ -13,6 +13,7 @@ screen = pygame.display.set_mode(size)
 
 pygame.mixer.init()
 pygame.font.init()
+font = pygame.font.Font('gfx/font.ttf', 15)
 rabbit = pygame.image.load('gfx/rabbit.png').convert()
 mouth = pygame.image.load('gfx/mouth.png').convert()
 blow_sound = pygame.mixer.Sound('sound/blow.ogg')
@@ -101,11 +102,14 @@ while done == False:
 
     screen.fill((255, 255, 255))
     screen.blit(rabbit, [300, 400, 200, 200])
+    text = font.render('Score: ' + str(score), True, [50, 50, 150])
+    screen.blit(text, [650, 550])
     for element in balloons:
         element.draw(screen)
     left_pipe.draw(screen)
     food_machine.draw(screen)
     screen.blit(mouth, [347, 540, 98, 60])
+    score += food_machine.updateScore()
     food_machine.removeOutsiders()
     clock.tick(20)
     pygame.display.flip()

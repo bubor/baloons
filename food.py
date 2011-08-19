@@ -34,12 +34,29 @@ class Food:
             radius = utils.calculatePygameValue(piece.fixtures[0].shape.radius)
             pygame.draw.circle(screen, color, position, radius)
 
+    def updateScore(self):
+        i = 0
+        score = 0
+        while i < len(self.pieces_of_food):
+            position = self.pieces_of_food[i].position
+            position = [utils.calculatePygameValue(position[0]), utils.calculatePygameValue(position[1])]
+            if position[0] > 347 and position[0] < 445 and position[1] > 600:
+                score += 1
+                self.removePieceAt(i)
+            else:
+                i += 1
+        return score
+
+
     def removeOutsiders(self):
-        for piece in self.pieces_of_food:
-            position = piece.position
+        i = 0
+        while i < len(self.pieces_of_food):
+            position = self.pieces_of_food[i].position
             position = [utils.calculatePygameValue(position[0]), utils.calculatePygameValue(position[1])]
             if position[1] > 600:
-                self.removePiece(piece)
+                self.removePieceAt(i)
+            else:
+                i += 1
 
     def removePiece(self, piece):
         self.world.DestroyBody(piece)
