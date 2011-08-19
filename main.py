@@ -21,7 +21,6 @@ blow_sound.set_volume(0.7)
 pop_sound = pygame.mixer.Sound('sound/pop.ogg')
 pygame.mixer.music.load('sound/audio.ogg')
 pygame.mixer.music.play(-1)
-#pygame.display.toggle_fullscreen()
 
 mouth.set_colorkey([0,255,0])
 

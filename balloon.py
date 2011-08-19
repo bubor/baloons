@@ -59,7 +59,7 @@ class Balloon:
         i = 0
         while i < len(food_machine.pieces_of_food):
             piece_position = [utils.calculatePygameValue(food_machine.pieces_of_food[i].position[0]), utils.calculatePygameValue(food_machine.pieces_of_food[i].position[1])]
-            if utils.distanceBetweenPoints(ball_position, piece_position) < radius:
+            if piece_position[0] > 145 and utils.distanceBetweenPoints(ball_position, piece_position) < radius:
                 self.counter = self.counter + 1
                 self.has_food_inside = True
                 food_machine.removePieceAt(i)
