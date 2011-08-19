@@ -18,7 +18,7 @@ mouth = pygame.image.load('gfx/mouth.png').convert()
 blow_sound = pygame.mixer.Sound('sound/blow.ogg')
 pop_sound = pygame.mixer.Sound('sound/pop.ogg')
 pygame.mixer.music.load('sound/audio.ogg')
-pygame.mixer.music.play()
+pygame.mixer.music.play(-1)
 
 mouth.set_colorkey([0,255,0])
 
@@ -52,14 +52,15 @@ while done == False:
         growing_balloon_coordinates = pygame.mouse.get_pos()
         balloons.append(balloon.Balloon(world_for_bubbles, growing_balloon_coordinates, 1))
         is_balloon_growing = True
+        blow_sound.play()
     elif is_balloon_growing and mouse_keys[0] == 0:
         is_balloon_growing = False
+        blow_sound.stop()
         balloons[-1].myFixture = balloons[-1].body.CreateFixture(balloons[-1].fixtureDef)
         balloons[-1].body.active = True
         balloons[-1].getFoodInside(food_machine)
     elif is_balloon_growing and mouse_keys[0]:
         balloons[-1].shape.radius += utils.calculateBox2DValue(4)
-        blow_sound.play()
 
     world_for_bubbles.Step(timeStep, 6, 2)
     world_for_bubbles.ClearForces()
