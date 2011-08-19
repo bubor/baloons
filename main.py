@@ -40,6 +40,8 @@ timeStep = 1.0 / 60
 is_balloon_growing = False
 is_balloon_shrinking = False
 
+start_time = pygame.time.get_ticks()
+
 balloons = list()
 while done == False:
     food_machine.createLeftPipeFood()
@@ -104,6 +106,10 @@ while done == False:
     screen.blit(rabbit, [300, 400, 200, 200])
     text = font.render('Score: ' + str(score), True, [50, 50, 150])
     screen.blit(text, [650, 550])
+    end_time = pygame.time.get_ticks()
+    miliseconds = (end_time - start_time) / 1000
+    text = font.render('Time:   ' + str(miliseconds), True, [50, 50, 150])
+    screen.blit(text, [650, 570])
     for element in balloons:
         element.draw(screen)
     left_pipe.draw(screen)
