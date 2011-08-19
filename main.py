@@ -17,10 +17,11 @@ font = pygame.font.Font('gfx/font.ttf', 15)
 rabbit = pygame.image.load('gfx/rabbit.png').convert()
 mouth = pygame.image.load('gfx/mouth.png').convert()
 blow_sound = pygame.mixer.Sound('sound/blow.ogg')
+blow_sound.set_volume(0.7)
 pop_sound = pygame.mixer.Sound('sound/pop.ogg')
 pygame.mixer.music.load('sound/audio.ogg')
 pygame.mixer.music.play(-1)
-pygame.display.toggle_fullscreen()
+#pygame.display.toggle_fullscreen()
 
 mouth.set_colorkey([0,255,0])
 
@@ -128,8 +129,8 @@ while done == False:
     screen.blit(text, [650, 580])
     for element in balloons:
         element.draw(screen)
-    left_pipe.draw(screen)
     food_machine.draw(screen)
+    left_pipe.draw(screen)
     screen.blit(mouth, [347, 540, 98, 60])
     score += food_machine.updateScore()
     food_machine.removeOutsiders()

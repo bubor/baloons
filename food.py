@@ -8,6 +8,8 @@ class Food:
     def __init__(self, world):
         self.world = world
         self.pieces_of_food = list()
+        self.chewing = pygame.mixer.Sound('sound/chewing.ogg')
+        self.chewing.set_volume(0.7)
 
     def createPieceOfFood(self, position, radius):
         piece = self.world.CreateDynamicBody()
@@ -46,9 +48,8 @@ class Food:
             else:
                 i += 1
         if(score):
-            chewing = pygame.mixer.Sound('sound/chewing.ogg')
-            chewing.fadeout(1000)
-            chewing.play()
+            self.chewing.stop()
+            self.chewing.play()
         return score
 
 
