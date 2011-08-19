@@ -14,6 +14,7 @@ screen = pygame.display.set_mode(size)
 pygame.mixer.init()
 pygame.font.init()
 font = pygame.font.Font('gfx/font.ttf', 15)
+intro = pygame.image.load('gfx/intro.png').convert()
 rabbit = pygame.image.load('gfx/rabbit.png').convert()
 mouth = pygame.image.load('gfx/mouth.png').convert()
 blow_sound = pygame.mixer.Sound('sound/blow.ogg')
@@ -21,6 +22,15 @@ blow_sound.set_volume(0.7)
 pop_sound = pygame.mixer.Sound('sound/pop.ogg')
 pygame.mixer.music.load('sound/audio.ogg')
 pygame.mixer.music.play(-1)
+
+screen.blit(intro, [0, 0])
+pygame.display.flip()
+while True:
+    for event in pygame.event.get():
+        pass
+    keys = pygame.mouse.get_pressed()
+    if 1 in keys:
+        break
 
 mouth.set_colorkey([0,255,0])
 
